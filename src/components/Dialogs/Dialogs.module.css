@@ -3,18 +3,5 @@
   display: grid;
   grid-template-columns: 2fr 10fr;
 }
-.dialogs .dialogs_items .dialog {
-  padding: 10px;
-}
-.dialogs .dialogs_items .dialog a {
-  color: black;
-  text-decoration: none;
-}
-.dialogs .dialogs_items .dialog a.active {
-  color: gold;
-}
-.dialogs .messages .message {
-  padding: 10px;
-}
 
 /*# sourceMappingURL=Dialogs.module.css.map */
