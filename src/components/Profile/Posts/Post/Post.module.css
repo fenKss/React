@@ -1,0 +1,13 @@
+.post {
+  display: flex;
+  align-items: center;
+}
+.post .text {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.post .avatar img {
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=Post.module.css.map */

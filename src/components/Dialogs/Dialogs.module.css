@@ -6,7 +6,11 @@
 .dialogs .dialogs_items .dialog {
   padding: 10px;
 }
-.dialogs .dialogs_items .dialog.active {
+.dialogs .dialogs_items .dialog a {
+  color: black;
+  text-decoration: none;
+}
+.dialogs .dialogs_items .dialog a.active {
   color: gold;
 }
 .dialogs .messages .message {
