@@ -1,8 +1,10 @@
-import {rendererEntireTree} from '../render'
+let rendererEntireTree = () => {
+    console.log('23');
+}
 
 let state = {
     profilePage: {
-        newPostText:"12s3",
+        newPostText: '12s3',
         posts: [
             {id: 1, message: `Hi, how are you`, likesCount: 0},
             {id: 2, message: `Hi, yo`, likesCount: 23},
@@ -40,4 +42,8 @@ export const changeTextPost = (text) => {
     state.profilePage.newPostText = text;
     rendererEntireTree(state);
 };
+
+export const subscribe = (observer) => {
+    rendererEntireTree = observer;
+}
 export default state;
