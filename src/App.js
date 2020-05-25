@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./components/Header/Header";
 import Content from "./components/Content/Content";
 import Sidebar from "./components/Sidebar/Sidebar";
+import {changeTextPost} from './redux/state';
 
 function App(props) {
 
@@ -11,7 +12,7 @@ function App(props) {
                 <Header/>
                 <main>
                     <Sidebar/>
-                    <Content content={props.state}/>
+                    <Content content={props.state} addPost={props.addPost} changeTextPost={props.changeTextPost}/>
                 </main>
             </div>
     );
