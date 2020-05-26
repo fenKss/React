@@ -2,7 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import DialogItems from './DialogItems/DialogItems';
-import {changeBodyMessageCreator, sendMessageCreator} from '../../redux/state';
+import {changeBodyMessageCreator, sendMessageCreator} from '../../redux/dialgosReduser';
 
 
 
@@ -19,7 +19,6 @@ const Dialogs = (props) => {
         e.preventDefault();
         const action = sendMessageCreator();
         props.dispatch(action);
-        console.log(123);
     }
 
     return (
