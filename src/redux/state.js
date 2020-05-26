@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const CHANGE_TEXT_POST = 'CHANGE-TEXT-POST';
+
 let store = {
     _state: {
         profilePage: {
@@ -34,11 +37,16 @@ let store = {
         return this._state;
     },
 
-    dispatch(action){ //{type:'ADD-POST'}
-        switch(action.type){
-            case `ADD-POST`:this._addPost(); break;
-            case `CHANGE-TEXT-POST`:this._changeTextPost(action.message); break;
-            default: console.error("Invalid action type");
+    dispatch(action) { //{type:'ADD-POST'}
+        switch (action.type) {
+            case ADD_POST:
+                this._addPost();
+                break;
+            case CHANGE_TEXT_POST:
+                this._changeTextPost(action.message);
+                break;
+            default:
+                console.error('Invalid action type');
         }
     },
     _addPost() {
@@ -56,6 +64,11 @@ let store = {
         this._callSubscriber(this._state);
     },
 }
+export const addPostActionCreator = () => ({type: ADD_POST});
 
+export const changeTextPostActionCreator = (message) => ({
+    type: CHANGE_TEXT_POST,
+    message: message,
+})
 
 export default store;
