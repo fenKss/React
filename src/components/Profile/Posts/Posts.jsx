@@ -6,15 +6,19 @@ const Posts = (props) => {
     let newPostElement = React.createRef();
     const addPost = (e) => {
         e.preventDefault();
-        // let value = newPostElement.current.value;
-        props.addPost();
+        props.dispatch({
+            type:"ADD-POST"
+        });
     };
 
     let postsElements = props.posts.map(e => <Post message={e.message} likesCount={e.likesCount}/>);
 
     const onPostChange = () => {
         let value = newPostElement.current.value;
-        props.changeTextPost(value);
+        props.dispatch({
+            type:"CHANGE-TEXT-POST",
+            message:value
+        });
     }
     return (
         <div className={s.posts}>

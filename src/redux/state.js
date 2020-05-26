@@ -27,7 +27,21 @@ let store = {
     _callSubscriber() {
         return undefined;
     },
-    addPost() {
+    subscribe(observer) {
+        this._callSubscriber = observer;
+    },
+    getState() {
+        return this._state;
+    },
+
+    dispatch(action){ //{type:'ADD-POST'}
+        switch(action.type){
+            case `ADD-POST`:this._addPost(); break;
+            case `CHANGE-TEXT-POST`:this._changeTextPost(action.message); break;
+            default: console.error("Invalid action type");
+        }
+    },
+    _addPost() {
         let newPost = {
             id: 5,
             message: this._state.profilePage.newPostText,
@@ -37,15 +51,9 @@ let store = {
         this._state.profilePage.newPostText = '';
         this._callSubscriber(this._state);
     },
-    getState() {
-        return this._state;
-    },
-    changeTextPost(text) {
+    _changeTextPost(text) {
         this.getState().profilePage.newPostText = text;
         this._callSubscriber(this._state);
-    },
-    subscribe(observer) {
-        this._callSubscriber = observer;
     },
 }
 
