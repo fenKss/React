@@ -1,6 +1,15 @@
 const ADD_POST = 'ADD-POST',
     CHANGE_TEXT_POST = 'CHANGE-TEXT-POST';
-const profileReduser = (state, action) => {
+
+let initState =  {
+    newPostText: '',
+        posts: [
+        {id: 1, message: `Hi, how are you`, likesCount: 0},
+        {id: 2, message: `Hi, yo`, likesCount: 23},
+    ],
+}
+
+const profileReduser = (state = initState, action) => {
     const _addPost = () => {
             let newPost = {
                 id: 5,
