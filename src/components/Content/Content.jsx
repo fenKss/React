@@ -3,7 +3,6 @@ import s from "./Content.module.css";
 import {Route} from "react-router-dom";
 import Dialogs from "../Dialogs/Dialogs";
 import Profile from "../Profile/Profile";
-import {changeTextPost} from '../../redux/state';
 
 const  Content = (props) => {
     return (

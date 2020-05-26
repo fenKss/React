@@ -6,7 +6,7 @@ const Posts = (props) => {
     let newPostElement = React.createRef();
     const addPost = (e) => {
         e.preventDefault();
-        let value = newPostElement.current.value;
+        // let value = newPostElement.current.value;
         props.addPost();
     };
 

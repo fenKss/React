@@ -4,14 +4,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import App from './App';
-import state, {addPost, changeTextPost, subscribe} from './redux/state';
+import store from './redux/state';
 
 
 export const rendererEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App state={state} addPost={addPost} changeTextPost={changeTextPost}/>
+                <App state={state} addPost={store.addPost.bind(store)} changeTextPost={store.changeTextPost.bind(store)}/>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root'),
@@ -19,8 +19,9 @@ export const rendererEntireTree = (state) => {
 };
 
 
-rendererEntireTree(state);
-subscribe(rendererEntireTree);
+rendererEntireTree(store.getState());
+
+store.subscribe(rendererEntireTree);
 
 serviceWorker.unregister();
 
