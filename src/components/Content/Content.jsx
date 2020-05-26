@@ -10,7 +10,7 @@ const  Content = (props) => {
             <Route path="/profile"><Profile state={props.content.profilePage} dispatch={props.dispatch}/></Route>
             <Route path="/title">Титульная</Route>
             <Route path="/news">Новости</Route>
-            <Route path="/dialogs"><Dialogs state={props.content.dialogsPage} /></Route>
+            <Route path="/dialogs"><Dialogs state={props.content.dialogsPage} dispatch={props.dispatch} /></Route>
         </div>
     )
 }

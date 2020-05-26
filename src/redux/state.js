@@ -1,5 +1,7 @@
-const ADD_POST = 'ADD-POST';
-const CHANGE_TEXT_POST = 'CHANGE-TEXT-POST';
+const ADD_POST = 'ADD-POST',
+    CHANGE_TEXT_POST = 'CHANGE-TEXT-POST',
+    CHANGE_MESSAGE_BODY = 'CHANGE-MESSAGE-BODY',
+    SEND_MESSAGE = 'SEND-MESSAGE';
 
 let store = {
     _state: {
@@ -11,6 +13,7 @@ let store = {
             ],
         },
         dialogsPage: {
+            newMessageBody : ``,
             dialogs: [
                 {id: 1, name: 'Dima'},
                 {id: 2, name: 'Sveta'},
@@ -25,8 +28,10 @@ let store = {
                 {id: 4, message: `Hi bitch`},
                 {id: 5, message: `Hi yo`},
             ],
+
         },
     },
+
     _callSubscriber() {
         return undefined;
     },
@@ -44,6 +49,12 @@ let store = {
                 break;
             case CHANGE_TEXT_POST:
                 this._changeTextPost(action.message);
+                break;
+            case CHANGE_MESSAGE_BODY:
+                this._changeMessageBody(action.body);
+                break;
+            case SEND_MESSAGE:
+                this._sendMessage();
                 break;
             default:
                 console.error('Invalid action type');
@@ -63,12 +74,29 @@ let store = {
         this.getState().profilePage.newPostText = text;
         this._callSubscriber(this._state);
     },
+    _changeMessageBody(body) {
+        this.getState().dialogsPage.newMessageBody= body;
+        this._callSubscriber(this._state);
+    },
+    _sendMessage() {
+        let newMessage = {
+            id: 5,
+            message: this._state.dialogsPage.newMessageBody,
+        }
+        this._state.dialogsPage.messages.push(newMessage);
+        this._state.dialogsPage.newMessageBody = '';
+        this._callSubscriber(this._state);
+    },
 }
-export const addPostActionCreator = () => ({type: ADD_POST});
+export const addPostCreator = () => ({type: ADD_POST});
 
-export const changeTextPostActionCreator = (message) => ({
+export const changeTextPostCreator = (message) => ({
     type: CHANGE_TEXT_POST,
     message: message,
-})
-
+});
+export const changeBodyMessageCreator = (message) => ({
+    type: CHANGE_MESSAGE_BODY,
+    body: message,
+});
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 export default store;
