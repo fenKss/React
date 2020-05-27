@@ -1,31 +1,30 @@
-import React from 'react';
 import {changeBodyMessageCreator, sendMessageCreator} from '../../redux/dialgosReduser';
 import Dialogs from './Dialogs';
-import StoreContext from '../../StoreContext';
+import {connect} from 'react-redux';
 
 
-const DialogsContainer = () => {
 
-
-    return (
-        <StoreContext.Consumer>{(store) => {
-            let state = store.getState();
-
-            const onTextareaChange = (message) => {
-                const action = changeBodyMessageCreator(message);
-                store.dispatch(action);
-            }
-
-            const onFormSubmit = () => {
-                const action = sendMessageCreator();
-                store.dispatch(action);
-            }
-            return <Dialogs onTextareaChange={onTextareaChange} onFormSubmit={onFormSubmit} state={state.dialogsPage}/>
-        }
-
-        }
-
-        </StoreContext.Consumer>
-    )
+const mapStateToProps = (state) =>{
+    return {
+         state: state.dialogsPage
+    }
 }
+const mapDispatchToProps = (dispatch) =>{
+
+    const onTextareaChange = (message) => {
+        const action = changeBodyMessageCreator(message);
+        dispatch(action);
+    }
+
+    const onFormSubmit = () => {
+        const action = sendMessageCreator();
+        dispatch(action);
+    }
+    return {
+        onTextareaChange:onTextareaChange,
+        onFormSubmit:onFormSubmit,
+    }
+}
+
+const DialogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dialogs);
 export default DialogsContainer;
