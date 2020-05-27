@@ -10,7 +10,7 @@ const App = (props) => {
             <Header/>
             <main>
                 <Sidebar/>
-                <Content content={props.state} dispatch={props.dispatch}/>
+                <Content state={props.state} store={props.store}/>
             </main>
         </div>
     );

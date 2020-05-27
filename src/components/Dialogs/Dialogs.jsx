@@ -2,23 +2,20 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import Messages from './Messages/Messages';
 import DialogItems from './DialogItems/DialogItems';
-import {changeBodyMessageCreator, sendMessageCreator} from '../../redux/dialgosReduser';
 
 
 
 const Dialogs = (props) => {
+
     const textarea = React.createRef();
 
-    const onTextareaChange = () =>{
-        let message = textarea.current.value,
-            action = changeBodyMessageCreator(message);
-        props.dispatch(action);
-    }
-
-    const onFormSubmit = (e) => {
+    const onFormSubmit = (e) =>{
         e.preventDefault();
-        const action = sendMessageCreator();
-        props.dispatch(action);
+        props.onFormSubmit();
+    }
+    const onTextareaChange = () =>{
+        const text = textarea.current.value;
+        props.onTextareaChange(text);
     }
 
     return (
