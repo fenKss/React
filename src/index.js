@@ -7,7 +7,7 @@ import App from './App';
 import store from './redux/reduxStore';
 import  {Provider} from './StoreContext';
 
-export const rendererEntireTree = () => {
+export const rendererEntireTree = (store) => {
     ReactDOM.render(
             <BrowserRouter>
                 <Provider store={store}>
@@ -19,11 +19,10 @@ export const rendererEntireTree = () => {
 };
 
 
-rendererEntireTree();
+rendererEntireTree(store);
 
 store.subscribe(() => {
-    let state = store.getState();
-    rendererEntireTree(state);
+    rendererEntireTree(store);
 });
 
 serviceWorker.unregister();
