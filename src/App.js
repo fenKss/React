@@ -4,13 +4,13 @@ import Header from './components/Header/Header';
 import Content from './components/Content/Content';
 import Sidebar from './components/Sidebar/Sidebar';
 
-const App = (props) => {
+const App = () => {
     return (
         <div className="App">
             <Header/>
             <main>
                 <Sidebar/>
-                <Content state={props.state} store={props.store}/>
+                <Content />
             </main>
         </div>
     );
