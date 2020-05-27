@@ -2,8 +2,6 @@ import {changeBodyMessageCreator, sendMessageCreator} from '../../redux/dialgosR
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
 
-
-
 const mapStateToProps = (state) =>{
     return {
          state: state.dialogsPage
