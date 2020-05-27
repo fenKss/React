@@ -1,8 +1,9 @@
 import React from 'react';
 import s from './Content.module.css';
 import {Route} from 'react-router-dom';
-import Profile from '../Profile/Profile';
-import DialogsContainer from '../Dialogs/DialogsContainer';
+import Profile from './Profile/Profile';
+import DialogsContainer from './Dialogs/DialogsContainer';
+import UsersContainer from './Users/UsersConatiner';
 
 const Content = () => {
     return (
@@ -14,6 +15,9 @@ const Content = () => {
             <Route path="/news">Новости</Route>
             <Route path="/dialogs">
                 <DialogsContainer />
+            </Route>
+            <Route path="/users">
+                <UsersContainer />
             </Route>
         </div>
     )
