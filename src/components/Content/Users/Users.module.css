@@ -29,6 +29,9 @@
   margin-left: 11px;
   font-size: 15px;
 }
+.users .user_right .text .status {
+  font-size: 13px;
+}
 .users .user_right button {
   background: none;
   border: 1px solid black;

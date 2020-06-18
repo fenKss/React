@@ -1,12 +1,12 @@
-import React from "react";
-import Navbar from "./Navbar/Navbar";
+import React  from 'react';
+import Navbar from './Navbar/Navbar';
 
-const  Sidebar = () => {
-    return (
-        <aside>
-            <Navbar />
-        </aside>
-    )
-}
+const Sidebar = () => {
+  return (
+      <aside>
+        <Navbar/>
+      </aside>
+  );
+};
 
 export default Sidebar;

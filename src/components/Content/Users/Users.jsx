@@ -24,31 +24,29 @@ class Users extends React.Component {
         this.props
             .users
             .map(user =>
-                     (
-                         <div className={s.user}>
-                           <div className={s.user_left}>
-                             <img
-                                 src={user.photoUrl ? user.photoUrl : userPhoto}
-                                 alt=""/>
-                           </div>
-                           <div className={s.user_right}>
-                             <div className={s.text}>
-                               <span className={s.name}>{user.fullName}</span>
-                               <span
-                                   className={s.location}>{user.location.country}, {user.location.city}</span>
-                               <div className={s.status}>{user.status}</div>
-                             </div>
-                             {user.isFollowed
-                              ?
-                              <button
-                                  onClick={() => this.props.onUnfollow(user.id)}>Отписаться</button>
-                              :
-                              <button
-                                  onClick={() => this.props.onFollow(user.id)}>Подписаться</button>
-                             }
-                           </div>
+                     <div className={s.user}>
+                       <div className={s.user_left}>
+                         <img
+                             src={user.photoUrl ? user.photoUrl : userPhoto}
+                             alt=""/>
+                       </div>
+                       <div className={s.user_right}>
+                         <div className={s.text}>
+                           <span className={s.name}>{user.fullName}</span>
+                           <span
+                               className={s.location}>{user.location.country}, {user.location.city}</span>
+                           <div className={s.status}>{user.status}</div>
                          </div>
-                     ),
+                         {user.isFollowed
+                          ?
+                          <button
+                              onClick={() => this.props.onUnfollow(user.id)}>Отписаться</button>
+                          :
+                          <button
+                              onClick={() => this.props.onFollow(user.id)}>Подписаться</button>
+                         }
+                       </div>
+                     </div>,
             )
       }
     </div>;
