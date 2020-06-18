@@ -4,11 +4,6 @@ import * as axios from 'axios';
 import userPhoto  from '../../../assets/user.png';
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
-    this.getUsers();
-  }
-
   getUsers = () => {
 
     axios
@@ -18,10 +13,16 @@ class Users extends React.Component {
           this.props.setUsers(users);
         });
   };
+
+  componentDidMount() {
+    this.getUsers();
+  }
+
   render = () => {
     return <div className={s.users}>
       {
-        this.props.users
+        this.props
+            .users
             .map(user =>
                      (
                          <div className={s.user}>
