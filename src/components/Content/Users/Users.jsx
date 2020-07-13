@@ -1,6 +1,7 @@
 import React     from 'react';
 import s         from './Users.module.scss';
 import userPhoto from '../../../assets/user.png';
+import Preloader from '../../Common/Preloader/Preloader';
 
 const Users = (props) =>{
   const pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -10,6 +11,7 @@ const Users = (props) =>{
   }
 
   return <div className={s.users}>
+    {/*<Preloader/>*/}
     <div>
       {
         pages.map(p => <span onClick={() =>{props.onPageChanged(p)}} className={props.currentPage === p && s.selected_page}>{p}</span>)

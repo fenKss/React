@@ -9,6 +9,7 @@ let initState = {
   pageSize:3,
   totalUsersCount:0,
   currentPage:1
+
 };
 const usersReducer = (state = initState, action) => {
   switch (action.type) {
@@ -63,8 +64,8 @@ const usersReducer = (state = initState, action) => {
 
 export default usersReducer;
 
-export const followAC = (userId) => ({type: FOLLOW, userId: userId});
-export const unfollowAC = (userId) => ({type: UNFOLLOW, userId: userId});
-export const setUsersAC = (users) => ({type: SET_USERS, users: users});
-export const setCurrentPageAC = (page) => ({type: SET_CURRENT_PAGE, currentPage: page});
-export const setTotalUsersCountAc = (count) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount: count});
+export const follow = (userId) => ({type: FOLLOW, userId: userId});
+export const unfollow = (userId) => ({type: UNFOLLOW, userId: userId});
+export const setUsers = (users) => ({type: SET_USERS, users: users});
+export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, currentPage: page});
+export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, totalUsersCount: count});
