@@ -4,7 +4,7 @@ import s     from './Posts.module.css';
 
 const Posts = (props) => {
   let newPostElement = React.createRef();
-  let postsElements = props.posts.map(e => <Post message={e.message}
+  let postsElements = props.posts.map((e,i) => <Post key={i} message={e.message}
                                                  likesCount={e.likesCount}/>);
 
   const onUpdateNewPostText = () => {
