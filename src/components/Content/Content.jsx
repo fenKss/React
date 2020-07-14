@@ -8,7 +8,7 @@ import ProfileContainer from './Profile/ProfileContainer';
 const Content = () => {
   return (
       <div className={s.content}>
-        <Route path="/profile">
+        <Route path="/profile/:id?">
           <ProfileContainer/>
         </Route>
         <Route path="/title">Титульная</Route>

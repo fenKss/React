@@ -4,6 +4,7 @@ import Preloader from '../../../Common/Preloader/Preloader';
 
 const ProfileInfo = (props) => {
   if (!props.profile) return <Preloader/>;
+
   return (
     <div className={s.profile_info}>
       <div>
@@ -14,6 +15,7 @@ const ProfileInfo = (props) => {
       <div>
         <img src={props.profile.photoUrl} width="200px" alt=""/>
         <div>{props.profile.status}</div>
+        <div>{props.profile.country}, {props.profile.city}</div>
       </div>
       </div>
   );
