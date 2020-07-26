@@ -13,6 +13,7 @@ const ProfileInfo = (props) => {
           width="50%" alt=""/>
       </div>
       <div>
+        <div>{props.profile.name}</div>
         <img src={props.profile.photoUrl} width="200px" alt=""/>
         <div>{props.profile.status}</div>
         <div>{props.profile.country}, {props.profile.city}</div>

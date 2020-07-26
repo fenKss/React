@@ -29,7 +29,7 @@ const Users = (props) => {
             </div>
             <div className={s.user_right}>
               <div className={s.text}>
-                <span className={s.name}>{user.fullName}</span>
+                <span className={s.name}>{user.name}</span>
                 <span
                   className={s.location}>{user.country}, {user.city}</span>
                 <div className={s.status}>{user.status}</div>
